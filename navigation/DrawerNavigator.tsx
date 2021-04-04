@@ -9,6 +9,7 @@ export default function DrawerNavigator() {
   return (
     <Drawer.Navigator
       initialRouteName="Journal"
+
     >
       <Drawer.Screen
         name="Journal"
