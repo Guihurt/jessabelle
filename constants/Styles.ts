@@ -7,7 +7,7 @@ export default StyleSheet.create({
   viewContainer: {
     paddingHorizontal: 20
   },
-  formRow:{
+  formRow: {
     flexDirection: 'row',
     alignItems: 'center'
   },
@@ -18,13 +18,23 @@ export default StyleSheet.create({
     flex: 3
   },
   title: {
-    color: 'white',
-    fontSize: 20 * fontScale,
+    fontSize: 24 * fontScale,
     paddingBottom: 15
   },
   h2: {
-    color: 'white',
-    fontSize: 16 * fontScale,
+    fontSize: 20 * fontScale,
     paddingLeft: 7.5
+  },
+  h3: {
+    fontSize: 16 * fontScale,
+  },
+  itemContainer: {
+    padding: 5
+  },
+  itemHeader_Icon: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 2.5,
+    marginBottom: 5
   }
 })

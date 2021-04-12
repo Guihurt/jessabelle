@@ -13,6 +13,7 @@ export default function MainScreen() {
   return (
     <Stack.Navigator
       initialRouteName="Year"
+      screenOptions={{headerStatusBarHeight: 0}}
     >
       <Stack.Screen
         name="Year"

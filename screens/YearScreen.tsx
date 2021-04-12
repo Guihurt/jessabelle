@@ -1,19 +1,19 @@
 import { useTheme } from '@react-navigation/native'
 import React from 'react'
-import { Text, TouchableOpacity } from 'react-native'
+import { View,Text, TouchableOpacity } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function YearScreen({ navigation }) {
 
-  const { light } = useTheme();
-  console.log("Theme: ",light)
+  //const { } = useTheme();
+  //console.log("Theme: ",light)
 
   return (
     <SafeAreaView style={{ alignItems: 'center' }}>
-      <Text style={{ color: 'white' }}>Year Screen</Text>
+      <Text style={{color: 'black'}}>Year Screen</Text>
       <TouchableOpacity
         onPress={() => navigation.navigate("Month")}
-        style={{ backgroundColor: 'green', padding: 10, borderRadius: 5 }}
+        style={{ backgroundColor: '#374337', padding: 10, borderRadius: 5 }}
       >
         <Text style={{ color: 'white' }}>Go to Month Screen</Text>
       </TouchableOpacity>
