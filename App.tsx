@@ -6,6 +6,9 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 import { useFocusEffect } from '@react-navigation/core';
+import dayjs from 'dayjs'
+var localeData = require('dayjs/plugin/localeData')
+dayjs.extend(localeData)
 
 import { themeContextDefault ,ThemeContext } from './context/theme'
 

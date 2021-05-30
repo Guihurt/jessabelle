@@ -1,32 +1,28 @@
-import React from 'react'
+import React from "react";
 
-import YearScreen from './YearScreen'
-import MonthScreen from './MonthScreen'
-import DayScreen from './DayScreen'
+import YearScreen from "./YearScreen";
+import MonthScreen from "./MonthScreen";
+import DayScreen from "./DayScreen";
 
-import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import dayjs from "dayjs";
 
 export default function MainScreen() {
-
   const Stack = createStackNavigator();
+  const Tab = createBottomTabNavigator();
+  const CurrentYear = dayjs().year().toString();
 
   return (
-    <Stack.Navigator
-      initialRouteName="Year"
-      screenOptions={{headerStatusBarHeight: 0}}
-    >
-      <Stack.Screen
-        name="Year"
-        component={YearScreen}
-      />
+    <Stack.Navigator initialRouteName="Year" screenOptions={{ headerStatusBarHeight: 0 }}>
+      <Stack.Screen name="Year" component={YearScreen} options={{ title: CurrentYear }} />
       <Stack.Screen
         name="Month"
         component={MonthScreen}
+        options={({ route }) => ({ title: route.params.month })}
       />
-      <Stack.Screen
-        name="Day"
-        component={DayScreen}
-      />
+      <Stack.Screen name="Day" component={DayScreen} />
     </Stack.Navigator>
-  )
+  );
 }
