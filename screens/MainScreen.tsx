@@ -15,14 +15,14 @@ export default function MainScreen() {
   const CurrentYear = dayjs().year().toString();
 
   return (
-    <Stack.Navigator initialRouteName="Year" screenOptions={{ headerStatusBarHeight: 0 }}>
+    <Stack.Navigator initialRouteName="Year">
       <Stack.Screen name="Year" component={YearScreen} options={{ title: CurrentYear }} />
       <Stack.Screen
         name="Month"
         component={MonthScreen}
         options={({ route }) => ({ title: route.params.month })}
       />
-      <Stack.Screen name="Day" component={DayScreen} />
+      <Stack.Screen name="Day" component={DayScreen} options={({route}) => ({title: route.params.day})}/>
     </Stack.Navigator>
   );
 }

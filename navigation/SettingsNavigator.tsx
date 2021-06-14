@@ -8,7 +8,7 @@ export default function SettingsNavigator() {
   return (
     <SettingStack.Navigator
       initialRouteName="SettingOptions"
-      screenOptions={{ headerShown: false, headerStatusBarHeight: 0 }}
+      screenOptions={{ headerShown: false }}
     >
       <SettingStack.Screen
         name="SettingOptions"

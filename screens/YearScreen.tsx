@@ -8,16 +8,15 @@ import dayjs from "dayjs";
 import useWindowScale from "../hooks/useWindowScale";
 
 export default function YearScreen({ navigation }) {
-  const windowScale = useWindowScale()
   const [theme, setTheme] = useContext(ThemeContext);
   //const { } = useTheme();
   console.log("Theme:", theme);
 
   type CellProps = {
-    month: String
-  }
+    month: String | React.Key;
+  };
 
-  const MonthCell = ({month}: CellProps) => {
+  const MonthCell = ({ month }: CellProps) => {
     return (
       <TouchableOpacity
         style={GridStyle.cell}
@@ -30,11 +29,13 @@ export default function YearScreen({ navigation }) {
 
   const MonthCard = () => {
     return (
-      <Card cardContainerStyle={{width: "100%", flexWrap: 'wrap', flexDirection: 'row'}}>
-        {dayjs.months().map((month: String) => <MonthCell key={month} month={month}/>)}
+      <Card cardContainerStyle={{ width: "100%", flexWrap: "wrap", flexDirection: "row" }}>
+        {dayjs.months().map((month) => (
+          <MonthCell key={month} month={month} />
+        ))}
       </Card>
-    )
-  }
+    );
+  };
 
   return (
     <View
@@ -44,7 +45,7 @@ export default function YearScreen({ navigation }) {
         flex: 1,
       }}
     >
-      <MonthCard/>
+      <MonthCard />
     </View>
   );
 }
