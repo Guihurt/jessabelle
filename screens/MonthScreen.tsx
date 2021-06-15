@@ -1,13 +1,16 @@
 import { useFocusEffect } from "@react-navigation/native";
-import React from "react";
+import React, { useContext } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { RowProps } from "../types";
 import { GridStyle } from "../constants/Styles";
 import Card from "../components/Card";
 import dayjs from "dayjs";
+import { ThemeContext } from "../context/theme";
 
 export default function MonthScreen({ navigation, route }) {
   const currentMonth = route.params.month;
+
+  const [theme, setTheme] = useContext(ThemeContext);
 
   type DayCellProps = {
     day: String | React.Key;
@@ -17,12 +20,20 @@ export default function MonthScreen({ navigation, route }) {
   useFocusEffect(React.useCallback(() => {}, []));
 
   const DayCell = ({ day, number }: DayCellProps) => {
+    const isDay = dayjs().date() === number;
     return (
       <TouchableOpacity
-        style={[GridStyle.cell, { minHeight: 40, minWidth: 40 }]}
+        style={[
+          GridStyle.cell,
+          {
+            minHeight: 40,
+            minWidth: 40,
+            backgroundColor: isDay ? theme.colors.card : null,
+          },
+        ]}
         onPress={() => navigation.navigate("Day", { day: `${day}` })}
       >
-        <Text style={GridStyle.cellText}>{number}</Text>
+        <Text style={[GridStyle.cellText,{color: isDay ? 'white' : 'black'}]}>{number}</Text>
       </TouchableOpacity>
     );
   };

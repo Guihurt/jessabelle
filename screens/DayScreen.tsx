@@ -6,8 +6,9 @@ import MoodSelector from "../components/MoodSelector";
 
 import { DefaultStyle as styles } from "../constants/Styles";
 
-export default function DayScreen() {
+export default function DayScreen({route}) {
   const [mood, setMood] = useState(0);
+  console.log(route.params.day)
 
   return (
     <SafeAreaView style={styles.viewContainer}>
