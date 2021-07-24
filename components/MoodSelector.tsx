@@ -24,9 +24,9 @@ export const Mood = {
 } as const;
 
 export default function MoodSelector({
-  iconSize,
+  iconSize = 24,
   setMood,
-  selectedMood,
+  selectedMood = 0,
 }: MoodSelectorProps) {
   const selectedStyle = (selectedMood: number, Mood: number) => {
     return selectedMood === Mood ? styles.selectedButton : {};
